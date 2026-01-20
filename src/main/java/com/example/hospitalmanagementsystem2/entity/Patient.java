@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @ToString
@@ -33,6 +34,15 @@ public class Patient {
    @CreationTimestamp
    @Column(updatable = false)
    private LocalDateTime createdAt;
+
+   @OneToOne
+   @JoinColumn(name = "patient_insurance_id",updatable = false)
+   private Insurance insurance;
+
+   @OneToMany(mappedBy = "patient")
+   private List<Appointment> appointments;
+
+
 
 
 
