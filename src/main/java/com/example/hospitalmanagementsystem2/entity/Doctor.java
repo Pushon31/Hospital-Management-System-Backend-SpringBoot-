@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,10 +34,10 @@ public class Doctor {
     private String specialization;
 
     @OneToMany(mappedBy = "doctor")
-    private List<Appointment> appointmentList;
+    private List<Appointment> appointmentList = new ArrayList<>();
 
     @ManyToMany(mappedBy = "doctors")
-    private List<Department> departments;
+    private List<Department> departments = new ArrayList<>();
 
 
 
